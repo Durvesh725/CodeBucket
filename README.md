@@ -1,2 +1,2 @@
 # CodeBucket
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+Welcome to CodeBucket! Here you'll find solutions to LeetCode & GeeksForGeeks Questions.
