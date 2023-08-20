@@ -54,7 +54,7 @@ public:
 	    int start = lowerBound(arr, n-1, x);
 	    int end = upperBound(arr, n-1, x);
 	    
-	    if(end == -1){
+	    if(start == -1){
 	        return 0;
 	    }
 	    else{
