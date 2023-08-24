@@ -57,7 +57,7 @@ class Solution{
        
        //traverse the vector in reverse direction
        for(int i = ans.size()-1; i >= 0; i--){
-           if(ans[i]){
+           if(ans[i] > 0){
                found = 1;
            }
            
