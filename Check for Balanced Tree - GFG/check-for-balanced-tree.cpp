@@ -102,38 +102,56 @@ struct Node
  */
 
 class Solution{
-    private:
-    int height(struct Node* node){
-        //base case
-        if(node == NULL){
-            return 0;
+    // private:
+    // int height(struct Node* node){
+    //     //base case
+    //     if(node == NULL){
+    //         return 0;
+    //     }
+        
+    //     int left = height(node -> left);
+    //     int right = height(node -> right);
+        
+    //     int ans = max(left, right) + 1;
+    //     return ans;
+    // }
+    
+    public:
+    pair<int, int> isBalancedFast(Node *root){
+        if(root == NULL){
+            pair<int, int> p = make_pair(true, 0);
+            return p;
         }
         
-        int left = height(node -> left);
-        int right = height(node -> right);
+        //calculate existence of left and right subtree along with its respective height
+        pair<int, int> left = isBalancedFast(root -> left);
+        pair<int, int> right = isBalancedFast(root -> right);
         
-        int ans = max(left, right) + 1;
+        //store ans
+        bool leftans = left.first;
+        bool rightans = right.first;
+        
+        //calculate absolute difference between the heights of left and right subtree
+        bool diff = abs(left.second - right.second) <= 1;
+        
+        //create ans pair
+        pair<bool, int> ans;
+        //calculate and store height
+        ans.second = max(left.second, right.second) + 1;
+        
+        if(leftans && rightans && diff){
+            ans.first = true;
+        }
+        else{
+            ans.first = false;
+        }
         return ans;
     }
     
-    public:
     //Function to check whether a binary tree is balanced or not.
     bool isBalanced(Node *root)
     {
-        if(root == NULL){
-            return true;
-        }
-        
-        bool left = isBalanced(root -> left);
-        bool right = isBalanced(root -> right);
-        bool diff = abs(height(root -> left) - height(root -> right)) <= 1;
-        
-        if(left && right && diff){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        return isBalancedFast(root).first;    
     }
 };
 
