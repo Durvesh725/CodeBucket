@@ -123,7 +123,7 @@ private:
                 maxLen = len;
                 maxSum = sum;
             }
-            else if(len == maxLen){
+            if(len == maxLen){
                 maxSum = max(sum, maxSum);
             }
             return;
