@@ -113,6 +113,7 @@ struct Node
 */
 class Solution
 {
+    // tags: DFS, maximize leaf nodes, sorting
 private:
   void getLevel(Node *root, vector<int> &data, int lvl){
       if(root == NULL)
