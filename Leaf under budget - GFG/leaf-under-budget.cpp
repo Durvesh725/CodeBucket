@@ -114,44 +114,37 @@ struct Node
 class Solution
 {
 private:
-  void vis_leaf(Node* node, int level, vector<int> &al)
-    {
-        if (node == nullptr)
-            return;
-
-        level++;
-
-        if (node->left == nullptr && node->right == nullptr)
-        {
-            al.push_back(level);
-            return;
-        }
-
-        vis_leaf(node->left, level, al);
-        vis_leaf(node->right, level, al);
+  void getLevel(Node *root, vector<int> &data, int lvl){
+      if(root == NULL)
+        return;
+    if(root -> left == NULL && root -> right == NULL){
+        data.push_back(lvl);
+        return;
     }
+    
+    getLevel(root -> left, data, lvl+1);
+    getLevel(root -> right, data, lvl+1);
+  }
+
 public:
     int getCount(Node *root, int k)
     {
-        vector<int> al;
+        if(root -> left == NULL && root -> right == NULL){
+            return 1;
+        }
+        
+        vector<int> data;
+        getLevel(root, data, 1);
+        
+        sort(data.begin(), data.end());
+        
         int cnt = 0;
-        al.clear();
-        vis_leaf(root, 0, al);
-        sort(al.begin(), al.end());
-
-        for (int i = 0; i < al.size(); i++)
-        {
-            if (k - al[i] >= 0)
-            {
+        for(auto i:data){
+            if(i<=k){
+                k =  k - i;
                 cnt++;
-                k -= al[i];
-            }
-            else
-            {
-                return cnt;
             }
         }
-
         return cnt;
     }
 };
