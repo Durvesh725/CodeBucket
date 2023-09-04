@@ -112,20 +112,22 @@ struct Node
 */
 // your task is to complete this function
 
-void solve(Node *root, int k, int node, vector<int> &path){
+bool solve(Node *root, int k, int node, vector<int> &path){
     if(root == NULL){
-        return;
+        return false;
     }
     
     path.push_back(root -> data);
+    if(root -> data == node){
+        return true;
+    }
     
-    solve(root -> left, k, node, path);
-    solve(root -> right, k, node, path);
+    if(solve(root -> left, k, node, path)) return true;
+    if(solve(root -> right, k, node, path)) return true;
     
-    if(path.back() == node)
-        return;   
-    else
-        path.pop_back();
+    path.pop_back();
+    
+    return false;
 }
 
 int kthAncestor(Node *root, int k, int node)
