@@ -23,6 +23,7 @@ class Solution
             if((n&1) == 1){
                 return cnt;
             }
+            //elimate previous processed bits and take next bits from right side
             n = n/2;
         }
         return 0;
