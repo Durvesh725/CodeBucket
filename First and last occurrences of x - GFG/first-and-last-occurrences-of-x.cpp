@@ -24,9 +24,9 @@ class Solution
         int k = i;
         
         while(arr[k] == x){
-            if(arr[k] == x){
+            // if(arr[k] == x){
                 k++;
-            }
+            // }
         }
         
         if(arr[k-1] == x){
