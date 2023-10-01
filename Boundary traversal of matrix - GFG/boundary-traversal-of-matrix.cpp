@@ -36,35 +36,6 @@ class Solution
                 ans.push_back(matrix[i][0]);
             }   
         }
-        
-        // //first row
-        // for(int i = 0; i < 1; i++){
-        //     for(int j = 0; j < m-1; j++){
-        //         ans.push_back(matrix[i][j]);
-        //     }
-        // }
-        
-        // //last col
-        // for(int i = 0; i < n-1; i++){
-        //     for(int j = m-1; j <= m-1; j++){
-        //         ans.push_back(matrix[i][j]);
-        //     }
-        // }
-        
-        // //last row
-        // for(int i = n-1; i <= n-1; i++){
-        //     for(int j = m-1; j > 0; j--){
-        //         ans.push_back(matrix[i][j]);
-        //     }
-        // }
-        
-        // //first col
-        // for(int i = n-1; i > 0; i--){
-        //     for(int j = 0; j <= 0; j++){
-        //         ans.push_back(matrix[i][j]);
-        //     }
-        // }
-        
         return ans;
     }
 };
