@@ -11,18 +11,27 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root, vector<int> &ans){
-        if(root == NULL)
-            return;
-        
-        inorder(root -> left, ans);
-        ans.push_back(root -> val);
-        inorder(root -> right, ans);
+    //app-2: Using counter
+    int solve(TreeNode* root, int k, int &i){
+        if(root == NULL){
+            return -1;
+        }
+        //IMP
+        //because we want to find kth smallest ele that will always exists to the left of the root
+        //if we find that ele, we'll return it
+        int left = solve(root -> left, k, i);
+        if(left != -1)
+            return left;
+        i++;
+        if(i == k)
+            return root -> val;
+        return solve(root -> right, k, i);
     }
     
+    
     int kthSmallest(TreeNode* root, int k) {
-        vector<int> ans;
-        inorder(root, ans);
-        return ans[k-1];
+        int i = 0;
+        int ans = solve(root, k, i);
+        return ans;
     }
 };
