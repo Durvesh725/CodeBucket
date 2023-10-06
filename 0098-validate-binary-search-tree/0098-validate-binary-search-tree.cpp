@@ -10,6 +10,7 @@
  * };
  */
 class Solution {
+//     TestCase: 2 2 2: we require LONG_MIN, LONG_MAX
 public:
     bool isBST(TreeNode* root, long min, long max){
         if(root == NULL)
