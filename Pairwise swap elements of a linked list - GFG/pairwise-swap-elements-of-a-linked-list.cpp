@@ -45,7 +45,7 @@ class Solution
         Node* curr = head;
         while(curr && curr -> next){
             prev -> next = curr -> next;
-            curr -> next = prev -> next -> next;
+            curr -> next = curr -> next -> next;
             prev -> next -> next = curr;
             
             prev = curr;
