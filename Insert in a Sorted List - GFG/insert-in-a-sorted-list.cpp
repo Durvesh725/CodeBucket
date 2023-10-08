@@ -43,19 +43,22 @@ struct Node
 class Solution{
   public:
     // Should return head of the modified linked list
-    Node *sortedInsert(struct Node* head, int data) {
+    Node *sortedInsert(struct Node* head, int data){
         Node* curr = head;
+        //if no elements exists
         if(curr == NULL){
             Node* newNode = new Node(data);
             return newNode;
         }
-    
+        
+        //head
         if(data < curr -> data){
             Node* newNode = new Node(data);
             newNode -> next = curr;
             return newNode;
         }
         
+        //middle
         while(curr -> next){
             if(data < curr -> next -> data){
                 Node* newNode = new Node(data);
@@ -66,6 +69,7 @@ class Solution{
             curr = curr -> next;
         }
         
+        //tail
         Node* newNode = new Node(data);
         curr -> next = newNode;
         return head;
