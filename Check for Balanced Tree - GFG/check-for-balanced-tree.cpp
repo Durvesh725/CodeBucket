@@ -102,24 +102,10 @@ struct Node
  */
 
 class Solution{
-    // private:
-    // int height(struct Node* node){
-    //     //base case
-    //     if(node == NULL){
-    //         return 0;
-    //     }
-        
-    //     int left = height(node -> left);
-    //     int right = height(node -> right);
-        
-    //     int ans = max(left, right) + 1;
-    //     return ans;
-    // }
-    
     public:
-    pair<int, int> isBalancedFast(Node *root){
+    pair<int, int> isBalancedFast(Node* root){
         if(root == NULL){
-            pair<int, int> p = make_pair(true, 0);
+            pair<bool, int> p = make_pair(true, 0);
             return p;
         }
         
@@ -151,7 +137,7 @@ class Solution{
     //Function to check whether a binary tree is balanced or not.
     bool isBalanced(Node *root)
     {
-        return isBalancedFast(root).first;    
+        return isBalancedFast(root).first;
     }
 };
 
