@@ -122,7 +122,7 @@ class Solution {
         if(root -> left == NULL && root -> right == NULL)
             return true;
         //2. no right child exists
-        if(root -> right == NULL)
+        else if(root -> right == NULL)
             return (root -> data > root -> left -> data);
         //3. two childs
         else{
