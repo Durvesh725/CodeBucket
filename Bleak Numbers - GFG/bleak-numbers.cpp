@@ -6,12 +6,12 @@ using namespace std;
 class Solution
 {
     private:
-    unsigned int countSetBits(unsigned int n)
+    unsigned int countSetBits(unsigned int x)
     {
         unsigned int count = 0;
-        while (n) {
-            count += n & 1;
-            n >>= 1;
+        while (x) {
+            count += x & 1;
+            x >>= 1;
         }
         return count;
     }
