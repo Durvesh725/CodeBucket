@@ -23,8 +23,8 @@ class Solution{
     // 	return sum;
     long long sum = 0;
     for(int i = 0; i < 32; i++){
-        long long zero_cnt = 0;
-        long long one_cnt = 0;
+        long zero_cnt = 0;
+        long one_cnt = 0;
         for(int j = 0; j < n; j++){
             if(arr[j]%2 == 0)
                 zero_cnt++;
