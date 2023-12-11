@@ -1,20 +1,30 @@
+//similar question like max sum of non adjacent ele DP
+
 class Solution {
-public:
-    int helper(vector<int>& nums, int idx, int n, vector<int>&dp){
-        if(idx >= n)
+private:
+    int solve(int ind, vector<int> &nums, vector<int> &dp){
+        if(ind == 0)
+            return nums[ind];
+        
+        if(ind < 0)
             return 0;
         
-        if(dp[idx]!=-1)
-        {
-            return dp[idx];
-        }
-        //pick or not pick
-        return dp[idx] = max((helper(nums, idx+2, n,dp)+nums[idx]), helper(nums, idx+1, n,dp));
+        if(dp[ind] != -1)
+            return dp[ind];
+        
+        //pick
+        int pick = nums[ind] + solve(ind-2, nums, dp);
+        
+        //not pick
+        int notpick = 0 + solve(ind-1, nums, dp);
+        
+        return dp[ind] = max(pick, notpick);
     }
     
+public:
     int rob(vector<int>& nums) {
-        int n = nums.size();
-        vector<int>dp(n,-1);
-        return helper(nums, 0, n, dp);   
-    }
+        int size = nums.size();
+        vector<int> dp(size, -1);
+        return solve(size-1, nums, dp);        
+    }   
 };
