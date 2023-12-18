@@ -29,8 +29,10 @@ private:
     
 public:
     int uniquePathsWithObstacles(vector<vector<int>>&og) {
+        //obstacle at beg only: edge case
         if(og[0][0]==1)
             return 0;
+        
         int m = og.size();
         int n = og[0].size();
         
