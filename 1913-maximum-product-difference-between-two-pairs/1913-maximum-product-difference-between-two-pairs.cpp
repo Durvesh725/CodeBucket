@@ -30,13 +30,13 @@ public:
         }
         if(bf>=2)
             secondBig=biggest;
-        else if(secondBig==0)
-            secondBig=biggest;
+        // else if(secondBig==0)
+        //     secondBig=biggest;
         if(sf>=2)
             secondSmall=small;
         
-        else if(secondSmall==1e5)
-            secondSmall=small;
+        // else if(secondSmall==1e5)
+        //     secondSmall=small;
         
         
             
