@@ -12,9 +12,9 @@ public:
         
         for(char c: path){
             if(c == 'N')    y++;
-            else if(c == 'E')    x++;
-            else if(c == 'S')    y--;
-            else    x--;
+            if(c == 'E')    x++;
+            if(c == 'S')    y--;
+            if(c == 'W')    x--;
             
             string coordinate = to_string(x) + "," + to_string(y);
             if(us.find(coordinate) != us.end())
