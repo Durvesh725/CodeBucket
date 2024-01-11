@@ -13,7 +13,7 @@ class Solution {
 private:
     int dfs(TreeNode* root, int maxVal, int minVal){
         if(root == NULL)
-            return maxVal - minVal;
+            return abs(maxVal - minVal);
         
         maxVal = max(maxVal, root -> val);
         minVal = min(minVal, root -> val);
