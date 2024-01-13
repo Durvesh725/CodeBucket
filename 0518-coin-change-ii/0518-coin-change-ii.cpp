@@ -2,8 +2,8 @@ class Solution {
 private:
     int solve(int ind, int target, vector<int> &coins, vector<vector<int>> &dp){
         //design base case considering there is only one element left in an array
-        if(ind == 0){
-            return (target % coins[0] == 0);
+        if(ind < 0){
+            return (target == 0);
         }
         
         if(dp[ind][target] != -1)
