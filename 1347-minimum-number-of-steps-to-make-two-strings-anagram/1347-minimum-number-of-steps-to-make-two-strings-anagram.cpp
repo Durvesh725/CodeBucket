@@ -1,12 +1,12 @@
 class Solution {
 public:
     int minSteps(string s, string t) {
-        //stpre frequency
+        //store frequency
         unordered_map<char, int> um;
         for(int i = 0; i < s.size(); i++){
             //neutralize i.e same characters gets cut down
-            um[s[i]]++;
-            um[t[i]]--;
+            um[s[i]]--;
+            um[t[i]]++;
         }
         
         
