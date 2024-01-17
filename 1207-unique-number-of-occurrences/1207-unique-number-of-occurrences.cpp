@@ -1,13 +1,14 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
+        // TC: O(n)
         unordered_map<int, int> um;
         int n = arr.size();
         for(int i = 0; i < n; i++){
             um[arr[i]]++;
         }
         
-        set<int> s;
+        unordered_set<int> s;
         for(auto it: um){
             s.insert(it.second);
         }
