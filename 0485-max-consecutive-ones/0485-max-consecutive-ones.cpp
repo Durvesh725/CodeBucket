@@ -13,8 +13,6 @@ public:
             }
         }
         ans = max(ans, count);
-        count = 0;
-
         return ans;
     }
 };
