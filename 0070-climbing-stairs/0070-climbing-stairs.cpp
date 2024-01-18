@@ -1,18 +1,19 @@
 class Solution {
+private:
+    int solve(int ind, vector<int> &dp){
+        if(ind <= 1)
+            return 1;
+        
+        if(dp[ind] != -1)
+            return dp[ind];
+        
+        int ways = solve(ind-1, dp) + solve(ind-2, dp);
+        return dp[ind] = ways;
+    }
+    
 public:
     int climbStairs(int n) {
-     //using tabulation with space optimization
-    if(n <= 1){
-        return 1;
-    }
-
-     int prev2 = 1;
-     int prev1 = 1;
-     for(int i = 2; i <= n; i++){
-         int curri = prev1 + prev2;
-         prev2 = prev1;
-         prev1 = curri;
-     }  
-     return prev1;
+    vector<int> dp(n+1, -1);
+    return solve(n, dp);
     }
 };
