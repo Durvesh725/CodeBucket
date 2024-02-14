@@ -1,6 +1,7 @@
 class Solution {
 public:
     int findLongestChain(vector<vector<int>>& pairs) {
+        // GREEDY
         sort(pairs.begin(), pairs.end());
         int ans = 0;
         int n = pairs.size();
