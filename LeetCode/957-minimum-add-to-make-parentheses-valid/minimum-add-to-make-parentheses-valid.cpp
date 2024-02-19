@@ -1,15 +1,17 @@
 class Solution {
 public:
     int minAddToMakeValid(std::string s) {
-        std::stack<char> st;
+        stack<char> st;
         int cnt = 0;
         for(char ch : s) {
             if(ch == '(') {
                 st.push(ch);
-            } else if(ch == ')') {
+            } 
+            else if(ch == ')') {
                 if(st.empty()) {
                     cnt++;
-                } else {
+                } 
+                else {
                     st.pop(); 
                 }
             }
