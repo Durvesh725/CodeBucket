@@ -11,13 +11,13 @@ public:
                 if(nums1[i] == nums2[j]){
                     return nums1[i];
                 }
-                if(i <= n) i++;
+                i++;
             }
             else{
                 if(nums1[i] == nums2[j]){
                     return nums1[i];
                 }
-                if(j <= m) j++;
+                j++;
             }
         }
         return -1;
