@@ -1,14 +1,13 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
-        int op = 0;
-        int i = 0;
-        while(i < nums.size() && nums[i] < k){
-            nums.erase(nums.begin());
-            op++;
+        int ans = 0;
+        for(auto &it : nums){
+            if(it < k){
+                ans++;
+            }
         }
-        return op;
+        return ans;
     }
 };
 
