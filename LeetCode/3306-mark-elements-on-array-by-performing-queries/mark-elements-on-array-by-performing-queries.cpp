@@ -18,11 +18,12 @@ public:
         for(auto it: queries){
             sum -= nums[it[0]];
             nums[it[0]] = 0;
-            while(pq.size() && it[1]){
+            int markk = it[1];
+            while(pq.size() && markk){
                 if(nums[pq.top().second]){
                     sum -= nums[pq.top().second];
                     nums[pq.top().second] = 0;
-                    it[1]--;
+                    markk--;
                 }
                 pq.pop();
             }
