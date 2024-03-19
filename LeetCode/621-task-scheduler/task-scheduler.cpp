@@ -14,8 +14,8 @@ public:
 
         int time = 0;
 
+        vector<int> temp;
         while(!pq.empty()){
-            vector<int> temp;
             //at max n+1 tasks can be performed i.e if one task is performed, that task can again be performed after n interval
             for(int i = 1; i <= n+1; i++){
                 if(!pq.empty()){
@@ -37,6 +37,8 @@ public:
                 time += temp.size();
             else
                 time += n+1;
+            
+            temp.clear();
         }
         return time;
     }
