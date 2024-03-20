@@ -26,6 +26,7 @@ public:
         }
 
         ListNode* endjoin = temp2 -> next;
+        temp2 -> next = NULL;
 
         ListNode* tail = list2;
         while(tail -> next){
