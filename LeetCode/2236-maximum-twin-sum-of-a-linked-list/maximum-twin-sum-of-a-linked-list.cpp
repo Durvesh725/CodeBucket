@@ -36,14 +36,15 @@ public:
 public:
     int pairSum(ListNode* head) {
         ListNode* mid = getMid(head);
-        ListNode* temp = mid -> next;
-        ListNode* rev = reverse(temp);
-        mid -> next = rev;
+        // ListNode* temp = mid -> next;
+        // ListNode* rev = reverse(temp);
+        mid -> next = reverse(mid -> next);
+        // mid -> next = rev;
 
         ListNode* h1 = head;
         ListNode* h2 = mid -> next;
-        int maxi = 0;
 
+        int maxi = 0;
         while(h2){
             maxi = max(maxi, (h1 -> val + h2 -> val));
             h1 = h1 -> next;
