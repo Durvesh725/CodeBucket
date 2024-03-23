@@ -36,6 +36,7 @@ public:
 public:
     void reorderList(ListNode* head) {
         ListNode* mid = getMid(head);
+        // cout << "mid: " << mid -> val;
         mid -> next = reverse(mid -> next);
 
         ListNode* h1 = head;
