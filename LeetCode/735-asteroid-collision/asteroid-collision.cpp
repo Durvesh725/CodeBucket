@@ -1,13 +1,14 @@
 class Solution {
 public:
-    vector<int> asteroidCollision(std::vector<int>& a){
+    vector<int> asteroidCollision(vector<int>& a){
     stack<int> st;
         
         for(int i = 0; i < a.size(); i++){
-            if(a[i] > 0 || st.empty() || st.top() < 0){
+            if(a[i] > 0 || st.empty()){
                 st.push(a[i]);
             }
             else{
+                //current is in left direction && top is in right direction and till top is less than curr, pop(collision)
                 while(!st.empty() && st.top() > 0 && st.top() < abs(a[i])){
                     st.pop();
                 }
