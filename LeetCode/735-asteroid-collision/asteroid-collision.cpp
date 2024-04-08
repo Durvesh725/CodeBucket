@@ -8,10 +8,10 @@ public:
                 st.push(a[i]);
             }
             else{
-                while(!st.empty() && st.top() > 0 && st.top() < -a[i]){
+                while(!st.empty() && st.top() > 0 && st.top() < abs(a[i])){
                     st.pop();
                 }
-                if(!st.empty() && st.top() == -a[i]){
+                if(!st.empty() && st.top() == abs(a[i])){
                     st.pop();
                 }
                 else if(st.empty() || st.top() < 0){
