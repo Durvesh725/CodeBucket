@@ -19,7 +19,7 @@ public:
             else    c2 = 1;
         }   
         if(mc1 == INT_MIN && mc2 == INT_MIN)
-            return c1;
+            return max(c1, c2);
 
         return max(mc1, mc2);
     }
