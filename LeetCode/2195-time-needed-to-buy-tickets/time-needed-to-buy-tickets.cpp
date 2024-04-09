@@ -16,6 +16,7 @@ public:
         //     if(t[ind] != 0)  q.push(ind);
         // }
         // return time;
+        //TC: N*max(tickets[i]);
 
         //intuition: do a dry run for all passes and observer left and right of kth position
         int time = 0;
@@ -26,5 +27,4 @@ public:
         }
         return time;
     }
-    //TC: N*max(tickets[i]);
 };
