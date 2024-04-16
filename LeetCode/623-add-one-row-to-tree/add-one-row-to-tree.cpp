@@ -28,8 +28,8 @@ private:
             return root;
         }
 
-        root -> left = add(root -> left, val, depth, curr_depth+1);
-        root -> right = add(root -> right, val, depth, curr_depth+1);
+        add(root -> left, val, depth, curr_depth+1);
+        add(root -> right, val, depth, curr_depth+1);
 
         return root;
     }
