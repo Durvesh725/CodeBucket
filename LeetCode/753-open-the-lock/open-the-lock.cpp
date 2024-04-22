@@ -8,7 +8,7 @@ private:
         return (ch == '0' ? '9' : ch - 1);
     }
 
-    vector<string> getNeighbours(string s){
+    vector<string> getNeighbours(string &s){
         //2options: right or left
         vector<string> temp;
         for(int i = 0; i < 4; i++){
@@ -39,7 +39,7 @@ public:
                 if(s == target) return level;
                 if(deadendset.find(s) != deadendset.end())  continue;
 
-                for(string options: getNeighbours(s)){
+                for(string &options: getNeighbours(s)){
                     if(!vis[options]){
                         q.push(options);
                         vis[options] = true;
