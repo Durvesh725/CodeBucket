@@ -20,7 +20,7 @@ public:
     int longestIdealString(string s, int k) {
         int ind = 0;
         int n = s.size();
-        vector<vector<int>> dp(n+1, vector<int>(27, -1));
+        vector<vector<int>> dp(n, vector<int>(27, -1));
         return solve(ind, '{', s, k, n, dp);
     }
 };
