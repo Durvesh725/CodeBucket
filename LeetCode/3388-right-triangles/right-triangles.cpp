@@ -1,7 +1,6 @@
 class Solution {
 public:
     long long numberOfRightTriangles(vector<vector<int>>& grid) {
-        
         long long n = grid.size();
         long long m = grid[0].size();
         vector<long long> r(n),c(m);
@@ -23,16 +22,14 @@ public:
         }
 
         for(int i = 0; i< n; ++i){
-            // int cnt = 0;
-            for(int j = 0; j < m; j++){
-
+            for(int j = 0; j < m; ++j){
                 if(grid[i][j] == 1){
                     int col = c[j];
                     int row = r[i];
 
                     col--;
                     row--;
-                    ans += ( row * col);
+                    ans += (row * col);
                 }
             }
         }
