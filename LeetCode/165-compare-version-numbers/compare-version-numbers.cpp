@@ -21,6 +21,10 @@ public:
     int compareVersion(string version1, string version2) {
         vector<int> n1 = splitString('.', version1);
         vector<int> n2 = splitString('.', version2);
+        for(auto it: n1)    cout << it << " ";
+        cout << endl;
+        for(auto it: n2)    cout << it << " ";
+        cout << endl;
         int n1s = n1.size();
         int n2s = n2.size();
         int val1, val2;
