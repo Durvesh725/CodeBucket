@@ -9,7 +9,7 @@ public:
                 b++;
                 j--;
             }
-            else if(p[j] < limit){
+            else{
                 if(p[j] + p[i] <= limit){
                     b++;
                     i++;
