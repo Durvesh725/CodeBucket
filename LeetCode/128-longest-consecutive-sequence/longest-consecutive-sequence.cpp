@@ -3,13 +3,14 @@ public:
     int longestConsecutive(vector<int>& nums) {
         //optimal solution
         unordered_set<int> s;
+        int cnt = 1;
+        int longest = 0;
+        
         int n = nums.size();
         for(auto it: nums){
             s.insert(it);
         }
 
-        int cnt = 1;
-        int longest = 0;
         for(auto it: s){
             //see if the curr element is itself the starting point for the consecutive sequence
             if(s.find(it - 1) == s.end()){
