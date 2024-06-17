@@ -18,13 +18,13 @@ public:
             long long totHrs= findTime(mid, piles, n);
 
             if(totHrs <= h){
-                ans = min(ans, mid);
+                // ans = min(ans, mid);
                 high = mid - 1;
             }
             else
             // if(totHrs >= h)
                 low = mid + 1;
         }
-        return (int)ans;
+        return low;
     }
 };
