@@ -16,17 +16,18 @@ public:
         int maxProfit = 0;
         int lastDiff = 0;
         for(int i = 0; i < n; i++){
-            if(worker[i] > lastDiff){
-                j = 0;
-                tempMax = 0;
-            }
+            // if(worker[i] > lastDiff){
+            //     j = 0;
+            //     tempMax = 0;
+            // }
 
+            cout << "j: " << j << endl;
             while(j < n && dp[j].first <= worker[i]){
                 tempMax = max(tempMax, dp[j].second);
                 lastDiff = dp[j].first;
                 j++;
             }
-            // cout << lastDiff << endl;
+            cout << lastDiff << endl;
             maxProfit += tempMax;
         }
 
