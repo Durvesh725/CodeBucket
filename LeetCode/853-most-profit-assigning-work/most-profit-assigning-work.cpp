@@ -20,12 +20,13 @@ public:
                 j = 0;
                 tempMax = 0;
             }
-            
+
             while(j < n && dp[j].first <= worker[i]){
                 tempMax = max(tempMax, dp[j].second);
-                lastDiff = worker[i];
+                lastDiff = dp[j].first;
                 j++;
             }
+            // cout << lastDiff << endl;
             maxProfit += tempMax;
         }
 
