@@ -18,9 +18,7 @@ public:
         if(bouquet == 0 || cnt)
             bouquet += cnt / k;
 
-        if(bouquet >= m)
-            return true;
-        return false;
+        return bouquet >= m;
     }
 
     int minDays(vector<int>& bloomDay, int m, int k) {
