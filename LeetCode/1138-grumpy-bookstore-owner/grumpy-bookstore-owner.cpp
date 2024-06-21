@@ -7,19 +7,21 @@ public:
         int n = customers.size();
 
         while(j < n){
-            if(grumpy[j] == 1 && customers[j] > 0){
-                unsatisfied += customers[j];
-            }
+            // if(grumpy[j] == 1 && customers[j] > 0){
+            //     unsatisfied += customers[j];
+            // }
+            unsatisfied += customers[j] * grumpy[j];
 
             if(window == minutes){
                 maxi = max(maxi, unsatisfied);
-                if(grumpy[i] == 1){
-                    unsatisfied -= customers[i];
-                }
+                // if(grumpy[i] == 1){
+                //     unsatisfied -= customers[i];
+                // }
+                unsatisfied -= customers[i] * grumpy[i];
                 i++;
                 window--;
             }
-            
+
             j++;
             window++;
         }
