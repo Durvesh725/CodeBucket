@@ -34,8 +34,17 @@ public:
             if(board[row][i] == c)
                 return false;
 
-            if(board[3*(row/3) + i/3][3*(col/3) + i%3] == c)
-                return false;
+            // if(board[3*(row/3) + i/3][3*(col/3) + i%3] == c)
+            //     return false;
+
+            int startRow = row / 3 * 3;
+            int startCol = col / 3 * 3;
+            for (int i = startRow; i < startRow + 3; i++) {
+                for (int j = startCol; j < startCol + 3; j++) {
+                    if (board[i][j] == c)
+                        return false;
+                }
+            }
         }
         return true;
     }
