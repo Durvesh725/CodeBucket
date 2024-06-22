@@ -1,18 +1,24 @@
 class Solution {
 public:
     int numberOfSubarrays(vector<int>& nums, int k) {
-        int j = 0, odd = 0, count = 0, total = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] & 1) {
-                odd++;
-                if (odd >= k) {
-                    count = 1;
-                    while (!(nums[j++] & 1))
-                        count++;
-                    total += count;
-                }
-            } else if (odd >= k) total += count;
+        int n = nums.size();
+        vector<int> newNums(n, 0);
+        for(int i = 0; i < n; i++){
+            if(nums[i]&1)
+                newNums[i] = 1;
         }
-        return total;
+
+        unordered_map<int, int> um;
+        int ps = 0, subarray = 0;
+        um[0] = 1;
+        for(int &num: newNums){
+            ps += num;
+            int remove = ps - k;
+            if(remove >= 0)
+                subarray += um[remove];
+            um[ps]++;
+        }
+        
+        return subarray;
     }
 };
