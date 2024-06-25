@@ -11,23 +11,30 @@
  */
 class Solution {
 public:
-    void solve(TreeNode *root1, TreeNode* root2, bool &isSymmetricb){
-        if(root1 == NULL && root2 == NULL)
-            return;
+    bool isSymmetric(TreeNode* root) {
+        //iterative approach BFS
+        if(root == NULL)
+            return true;
 
-        if(root1 == NULL || root2 == NULL || root1 -> val != root2 -> val){
-            isSymmetricb = false;
-            return;
+        queue<TreeNode*> q;
+        q.push(root -> left);
+        q.push(root -> right);
+        while(!q.empty()){
+            TreeNode* leftNode = q.front();
+            q.pop();
+            TreeNode* rightNode = q.front();
+            q.pop();
+
+            if(leftNode == NULL && rightNode == NULL)   continue;
+            if(leftNode == NULL || rightNode == NULL || leftNode -> val != rightNode -> val)
+                return false;
+
+            q.push(leftNode -> left);
+            q.push(rightNode -> right);
+            q.push(leftNode -> right);
+            q.push(rightNode -> left);
         }
 
-        solve(root1 -> left, root2 -> right, isSymmetricb);
-        // cout << root1 -> val << " " << root2 -> val << endl;
-        solve(root1 -> right, root2 -> left, isSymmetricb);
-    }
-
-    bool isSymmetric(TreeNode* root) {
-        bool isSymmetricb = true;
-        solve(root -> left, root -> right, isSymmetricb);
-        return isSymmetricb;
+        return true;
     }
 };
