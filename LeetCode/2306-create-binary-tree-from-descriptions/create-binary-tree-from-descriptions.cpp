@@ -34,6 +34,11 @@ public:
             }
         }
 
+        
+        // for(auto it: um){
+        //     cout << it.first << " " << it.second << endl;
+        // }
+
         int root = -1;
         for(vector<int> &arr: descriptions){
             if(child.find(arr[0]) == child.end()){
