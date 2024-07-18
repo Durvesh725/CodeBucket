@@ -11,28 +11,25 @@
  */
 class Solution {
 public:
-    void solve(TreeNode* root, vector<vector<int>> &res, vector<int> &temp, int &targetSum, int &sum){
+    void solve(TreeNode* root, vector<vector<int>> &res, vector<int> &temp, int targetSum){
         if(root == NULL)
             return;
 
-        sum += root -> val;
         temp.push_back(root -> val);
-        if(!root -> left && !root -> right && sum == targetSum){
+        if(!root -> left && !root -> right && targetSum == root -> val){
             res.push_back(temp);
         }
         else{
-            solve(root -> left, res, temp, targetSum, sum);
-            solve(root -> right, res, temp, targetSum, sum);
+            solve(root -> left, res, temp, targetSum - root -> val);
+            solve(root -> right, res, temp, targetSum - root -> val);
         }
-        sum -= root -> val;
         temp.pop_back();
     }
 
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         vector<vector<int>> res;
         vector<int> temp;
-        int sum = 0;
-        solve(root, res, temp, targetSum, sum);
+        solve(root, res, temp, targetSum);
         return res;
     }
 };
