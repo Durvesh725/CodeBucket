@@ -11,29 +11,19 @@
  */
 class Solution {
 public:
-    void solve(TreeNode* root, vector<TreeNode*> &list){
-        if(root == NULL)
-            return;
-        
-        list.push_back(root);
-        solve(root -> left, list);
-        solve(root -> right, list);
-    }
-
+    TreeNode* prev = NULL;
     void flatten(TreeNode* root) {
         if(root == NULL)
             return;
 
-        vector<TreeNode*> list;
-        solve(root, list);
+        flatten(root -> right);
+        flatten(root -> left);
 
-        int n = list.size();
-        for(int i = 0; i < n-1; i++){
-            list[i] -> left = NULL;
-            list[i] -> right = list[i+1];
-        }
-
-        list[n-1] -> left = NULL;
-        list[n-1] -> right = NULL;
+        root -> left = NULL;
+        root -> right = prev;
+        prev = root;
     }
 };
+
+//TC: O(N)
+//SC: O(log2N) -> tree is balanced (recursive stack space)
