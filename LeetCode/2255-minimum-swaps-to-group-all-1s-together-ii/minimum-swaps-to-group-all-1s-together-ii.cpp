@@ -9,9 +9,6 @@ public:
                 cntOne++;
         }
 
-        // if(cntOne == n || cntOne == 0)
-        //     return 0;
-
         int swaps = INT_MAX, cntZ = 0;
         for(int i = 0; i < cntOne; i++){
             if(nums[i] == 0)
