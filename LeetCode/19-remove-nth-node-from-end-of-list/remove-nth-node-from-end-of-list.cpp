@@ -25,18 +25,17 @@ public:
             delete temp;
         }
         else{
-            ListNode* prev = head;
-            ListNode* curr = head -> next;
+            ListNode* curr = head;
             int cnt = 1;
             while(cnt < pos - 1){
-                prev = curr;
                 curr = curr -> next;
                 cnt++;
             }
 
-            prev -> next = curr -> next;
-            curr -> next = NULL;
-            delete curr;
+            ListNode* todelete = curr -> next;
+            curr -> next = curr -> next -> next;
+            todelete -> next = NULL;
+            delete todelete;
         }
 
         return head;
