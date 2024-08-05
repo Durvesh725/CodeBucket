@@ -33,10 +33,7 @@ public:
             cnt++;
         }
 
-
-        int temp_val = p2 -> val;
-        p2 -> val = p1 -> val;
-        p1 -> val = temp_val;
+        swap(p2 -> val, p1 -> val);
 
         return head;
     }
