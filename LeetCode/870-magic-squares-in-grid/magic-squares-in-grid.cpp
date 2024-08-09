@@ -10,6 +10,7 @@ public:
             return 0;
 
         const int sum = 15;
+        const int dia_sum = 10;
 
         for(int l = 0; l <= n - 3; l++){
             for(int k = 0; k <= m - 3; k++){
@@ -50,8 +51,8 @@ public:
                 }
 
                 
-                if(grid[l][k] + grid[l + 1][k + 1] + grid[l + 2][k + 2] != sum ||
-                   grid[l][k + 2] + grid[l + 1][k + 1] + grid[l + 2][k] != sum){
+                if(grid[l][k] + grid[l + 2][k + 2] != dia_sum ||
+                   grid[l][k + 2] + grid[l + 2][k] != dia_sum){
                     isMagic = false;
                 }
 
