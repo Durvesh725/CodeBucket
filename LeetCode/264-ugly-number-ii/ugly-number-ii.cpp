@@ -13,7 +13,7 @@ public:
             curr_ugly = pq.top();
             pq.pop();
 
-            for(int f: factors){
+            for(int &f: factors){
                 long next_ugly = curr_ugly * f;
                 if(vis.find(next_ugly) == vis.end()){
                     pq.push(next_ugly);
