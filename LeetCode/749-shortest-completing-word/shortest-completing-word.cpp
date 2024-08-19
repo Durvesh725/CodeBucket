@@ -25,13 +25,10 @@ public:
             string w = words[i];
             // cout << w << endl;
             for(auto it: w){
-                if(temp[it] > 1){
+                if(temp.find(it) != temp.end()){
                     temp[it]--;
-                    // if(temp[it] == 0)
-                        
-                }
-                else{
-                    temp.erase(it);
+                    if(temp[it] == 0)
+                        temp.erase(it);
                 }
             }
 
@@ -39,7 +36,7 @@ public:
             cout << temp.size() << endl;
             for(auto it: temp){
                 cout << it.first << " " << it.second;
-            }cout << endl;
+            }
 
             if(temp.size() == 0){
                 if(w.size() < shortestLen){
