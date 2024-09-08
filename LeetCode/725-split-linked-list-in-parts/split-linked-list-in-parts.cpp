@@ -37,38 +37,35 @@ public:
 
         ListNode* temp = head;
         ListNode* prev = NULL;
+        ListNode* tempHead = temp;
         int p = k;
 
         while(p){
             if(extra){
                 int cnt = (length/k) + 1;
-                ListNode* tempHead = temp;
+                tempHead = temp;
 
                 while(temp && cnt){
                     prev = temp;
                     temp = temp -> next;
                     cnt--;
                 }
-
-                prev -> next = NULL;
-                ans.push_back(tempHead);
                 extra--;
-                p--;
             }
             else{
                 int cnt = (length/k);
-                ListNode* tempHead = temp;
+                tempHead = temp;
 
                 while(temp && cnt){
                     prev = temp;
                     temp = temp -> next;
                     cnt--;
                 }
-
-                prev -> next = NULL;
-                ans.push_back(tempHead);
-                p--;
             }
+
+            prev -> next = NULL;
+            ans.push_back(tempHead);
+            p--;
         }
 
         return ans;
