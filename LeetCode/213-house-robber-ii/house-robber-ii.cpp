@@ -19,8 +19,8 @@ public:
         if(n == 1)
             return nums[0];
 
-        vector<int> dp(n+1, -1);
-        vector<int> dp2(n+1, -1);
+        vector<int> dp(n, -1);
+        vector<int> dp2(n, -1);
 
         return max(solve(1, nums, n, dp), solve(0, nums, n-1, dp2));
     }
