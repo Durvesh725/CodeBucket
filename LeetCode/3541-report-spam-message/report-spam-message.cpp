@@ -8,7 +8,6 @@ public:
         for(string &s: message){
             um1[s]++;
         }
-
         for(string &s: bannedWords){
             um2[s]++;
         }
@@ -19,8 +18,6 @@ public:
             }
         }
 
-        if(count >= 2)
-            return true;
-        return false;
+        return (count >= 2);
     }
 };
