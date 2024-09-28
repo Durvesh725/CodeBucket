@@ -1,30 +1,24 @@
 class Solution {
 public:
     vector<int> sortArrayByParityII(vector<int>& nums) {
-        vector<int> odd;
-        vector<int> even;
-        vector<int> ans;
+        int evenInd = 0;
+        int oddInd = 1;
         int n = nums.size();
 
-        for(int i = 0; i < n; i++){
-            if(nums[i]&1){
-                odd.push_back(nums[i]);
+        while(evenInd < n && oddInd < n){
+            if(nums[evenInd] % 2 == 0){
+                evenInd += 2;
+            }
+            else if(nums[oddInd] % 2 == 1){
+                oddInd += 2;
             }
             else{
-                even.push_back(nums[i]);
+                swap(nums[evenInd], nums[oddInd]);
+                evenInd += 2;
+                oddInd += 2;
             }
         }
 
-        int ind1 = 0, ind2 = 0;
-        for(int i = 0; i < n; i++){
-            if(i&1){
-                ans.push_back(odd[ind1++]);
-            }
-            else{
-                ans.push_back(even[ind2++]);
-            }
-        } 
-
-        return ans;  
+        return nums;   
     }
 };
