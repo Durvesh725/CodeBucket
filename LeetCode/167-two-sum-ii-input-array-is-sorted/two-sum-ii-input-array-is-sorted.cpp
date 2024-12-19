@@ -9,7 +9,7 @@ public:
             if(nums[i] + nums[j] == target){
                 res[0] = i + 1;
                 res[1] = j + 1;
-                i++, j--;
+                return res;
             }
             else if(nums[i] + nums[j] < target){
                 i++;
@@ -19,6 +19,6 @@ public:
             }
         }
 
-        return res;
+        return {-1, -1};
     }
 };
