@@ -3,8 +3,13 @@
  * @return {Promise}
  */
 async function sleep(millis) {
-    return new Promise ((res) => {
-        setTimeout(res, millis);
+    return new Promise ((res, rej) => {
+        if(typeof millis !== 'number' || isNaN(millis)){
+            rej(new Error('Invalid argument passed!'));
+        }
+        else{
+            setTimeout(res, millis);
+        }
     });
 }
 
