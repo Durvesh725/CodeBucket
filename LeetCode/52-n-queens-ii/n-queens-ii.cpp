@@ -28,9 +28,8 @@ public:
         return true;
     }
 
-    void solve(int col, int n, vector<vector<string>> &ans, vector<string> &board, int &cnt){
+    void solve(int col, int n, vector<string> &board, int &cnt){
         if(col == n){
-            ans.push_back(board);
             cnt++;
             return;
         }
@@ -38,23 +37,17 @@ public:
         for(int row = 0; row < n; row++){
             if(isSafe(board, row, col, n)){
                 board[row][col] = 'Q';
-                solve(col+1, n, ans, board, cnt);
+                solve(col+1, n, board, cnt);
                 board[row][col] = '.';
             }
         }
     }
 
     int totalNQueens(int n) {
-        vector<vector<string>> ans;
-        vector<string> board(n);
-        string s(n, '.');
-        for(int i = 0; i < n; i++){
-            board[i] = s;
-        }
-
+        vector<string> board(n, string(n, '.'));
         int cnt = 0;
 
-        solve(0, n, ans, board, cnt);
+        solve(0, n, board, cnt);
         return cnt;
     }
 };
