@@ -1,11 +1,6 @@
 class Solution {
 public:
-    int bfs(int i, int j, vector<vector<int>> &grid){
-        int n = grid.size();
-        int m = grid[0].size();
-        int row_arr[4] = {-1, 0, +1, 0};
-        int col_arr[4] = {0, +1, 0, -1};
-
+    int bfs(int i, int j, vector<vector<int>> &grid, int &n, int &m, int *row_arr, int *col_arr){
         queue<pair<int, int>> q;
         q.push({i, j});
 
@@ -34,11 +29,14 @@ public:
     int findMaxFish(vector<vector<int>>& grid) {
         int n = grid.size();
         int m = grid[0].size();
+        int row_arr[4] = {-1, 0, +1, 0};
+        int col_arr[4] = {0, +1, 0, -1};
+
         int maxFish = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
                 if(grid[i][j] > 0){
-                    maxFish = max(maxFish, bfs(i, j, grid));
+                    maxFish = max(maxFish, bfs(i, j, grid, n, m, row_arr, col_arr));
                 }
             }
         }
