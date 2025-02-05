@@ -2,7 +2,6 @@ class Solution {
 public:
     bool areAlmostEqual(string s1, string s2) {
         int n1 = s1.size();
-        // int n2 = s2.size();
         vector<pair<char, char>> temp;
 
         int i = 0;
