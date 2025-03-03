@@ -4,8 +4,9 @@ public:
         int n = nums.size();
         vector<int> res(n);
         int left = 0, right = n-1;
+        int i = 0, j = n-1;
 
-        for(int i = 0, j = n-1; i < n; i++, j--){
+        while(i < n && j >= 0){
             if(nums[i] < pivot){
                 res[left] = nums[i];
                 left++;
@@ -14,6 +15,7 @@ public:
                 res[right] = nums[j];
                 right--;
             }
+            i++, j--;
         }
 
         while(left <= right){
